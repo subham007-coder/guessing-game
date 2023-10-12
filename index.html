@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guessing Game</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div id="winParty">
+    
+    
+      <div id="winMatch">
+    
+        <canvas id="canvas"></canvas>
+    
+      </div> 
+    
+    </div>
+
+
+    <div id="text-box">
+      <h1>Guessing Number Game</h1>
+  
+    <h5 class="gameInfo"></h5>
+
+    
+  </div>
+  
+  <br>
+
+
+
+
+  <!-- Random Number -->
+  <div id="container">
+
+
+    <div id="divOne" class="row g-3 my-5 align-items-center">
+      <div class="col-auto">
+        <label for="inputPassword6" class="col-form-label" id="removeText">Enter Your Max Number</label>
+        <span id="changeText-one"></span>
+      </div>
+      <div class="col-auto">
+        <input type="number" id="inputPassword6" class="form-control input1" aria-describedby="passwordHelpInline">
+      </div>
+      <div class="col-auto">
+        <span id="passwordHelpInline" class="form-text">
+        </span>
+        <button type="button" class="btn btn-warning random_btn">Enter</button>
+      </div>
+    </div>
+
+
+    <!-- Guessing Number -->
+
+
+    <div id="divTwo" class="row g-3 m-5 align-items-center">
+      <div class="col-auto">
+        <label for="inputPassword6" class="col-form-label" id="changeText">Guessing The Random Number</label>
+      </div>
+      <div class="col-auto">
+        <input type="number" id="inputPassword6" class="form-control input2" aria-describedby="passwordHelpInline">
+      </div>
+      <div class="col-auto">
+        <span id="passwordHelpInline" class="form-text">
+        </span>
+        <button type="button" class="btn btn-warning guess_btn">Enter</button>
+      </div>
+    </div>
+
+
+
+    <p class="inputInfo" style="color: white;"></p>
+    <h1 class="clickCount" style="color: red;"></h1>
+  </div>
+
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
