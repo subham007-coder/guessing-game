@@ -1,125 +1,121 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html body {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    background-color: rgb(1, 4, 33);
-    overflow-y: hidden;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgb(1, 4, 33);
+  overflow-y: hidden;
 }
 
 #container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #container button {
-    border: 0;
+  border: 0;
 }
 
 #container button:hover {
-    background-color: blueviolet;
-    color: #fff;
+  background-color: blueviolet;
+  color: #fff;
 }
 
 #text-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .gameInfo {
-    position: relative;
-    color: rgb(255, 238, 0);
+  position: relative;
+  color: rgb(255, 238, 0);
 }
 
 #style {
-    animation: style 5s linear;
+  animation: style 5s linear;
 }
 
 @keyframes style {
+  0% {
+    color: rgb(255, 0, 0);
+  }
 
-    0% {
-        color: rgb(255, 0, 0);
-    }
+  50% {
+    color: rgb(185, 247, 124);
+  }
 
-    50% {
-        color: rgb(185, 247, 124);
-    }
-
-    100% {
-        color: rgb(109, 215, 239);
-    }
+  100% {
+    color: rgb(109, 215, 239);
+  }
 }
 
 #text-box h1 {
-    color: aqua;
+  color: aqua;
 }
 
 .col-form-label {
-    color: white;
+  color: white;
 }
 
 #divOne,
 #divTwo {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 #divOne span {
-    color: red;
+  color: red;
 }
 
 #divTwo {
-    display: none;
+  display: none;
 }
 
-
 @media (max-width: 700px) {
-    #container {
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
+  #container {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 
-    body 
-    h5,
-    h6{
-        font-size: 3vw;
-    }
+  body h5,
+  h6 {
+    font-size: 3vw;
+  }
 
-    .col-form-label {
-        font-size: 2.5vw;
-    }
+  .col-form-label {
+    font-size: 2.5vw;
+  }
 }
 
 #winMatch {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    font-size: 333%;
-    font-family: sans-serif;
-    color: rgb(235, 255, 10);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 333%;
+  font-family: sans-serif;
+  color: rgb(235, 255, 10);
 }
 
 #winMatch h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 canvas {
-    overflow-y: hidden;
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
 }
 
 #winParty {
-    width: 200px;
-    display: none;
+  width: 200px;
+  display: none;
 }

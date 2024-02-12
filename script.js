@@ -1,126 +1,101 @@
 // DOM Selection
 
-const max = document.querySelector(".input1")
+const max = document.querySelector(".input1");
 
-const guess = document.querySelector(".input2")
+const guess = document.querySelector(".input2");
 
-const randomBtn = document.querySelector(".random_btn")
+const randomBtn = document.querySelector(".random_btn");
 
-const guessBtn = document.querySelector(".guess_btn")
+const guessBtn = document.querySelector(".guess_btn");
 
-const changeText = document.querySelector("#changeText")
+const changeText = document.querySelector("#changeText");
 
-const changeTextOne = document.querySelector("#changeText-one")
+const changeTextOne = document.querySelector("#changeText-one");
 
-const removeText = document.querySelector("#removeText")
+const removeText = document.querySelector("#removeText");
 
-const divTwo = document.querySelector("#divTwo")
+const divTwo = document.querySelector("#divTwo");
 
-const gameInfo = document.querySelector(".gameInfo")
+const gameInfo = document.querySelector(".gameInfo");
 
-const gameAni = document.querySelector("#winParty")
-
+const gameAni = document.querySelector("#winParty");
 
 // Enter user max Number function
 randomBtn.addEventListener("click", () => {
-
   const random = Math.floor(Math.random() * max.value) + 1;
-
-  console.log(max.value);
-
-  console.log(random);
 
   const makeNumber = Number(max.value);
 
-  console.log(typeof makeNumber);
+  if (
+    max.value == "" ||
+    max.value == 0 ||
+    max.value == 1 ||
+    max.value == 2 ||
+    max.value == 3 ||
+    max.value == 4 ||
+    max.value == 5 ||
+    max.value == 6 ||
+    max.value == 7 ||
+    max.value == 8 ||
+    max.value == 9
+  ) {
+    const divOne = (document.querySelector("#divOne").style.display = "flex");
 
-  if (max.value == "" || max.value == 0 || max.value == 1 || max.value == 2 || max.value == 3 || max.value == 4 || max.value == 5 || max.value == 6 || max.value == 7 || max.value == 8 || max.value == 9) {
+    divTwo.style.display = "none";
 
-    console.log("it's empty");
+    removeText.style.display = "none";
 
-    const divOne = document.querySelector("#divOne").style.display = "flex"
-
-    divTwo.style.display = "none"
-
-    removeText.style.display = "none"
-
-    changeTextOne.innerHTML = "Please Enter Minimum Two Digit Number"
-  }
-
-
-  else if (max.value == makeNumber) {
-
-    const divOne = document.querySelector("#divOne").style.display = "none"
+    changeTextOne.innerHTML = "Please Enter Minimum Two Digit Number";
+  } else if (max.value == makeNumber) {
+    const divOne = (document.querySelector("#divOne").style.display = "none");
 
     const text = max.value;
 
-    changeText.innerHTML = `Guessing Number Between ${text}`
+    changeText.innerHTML = `Guessing Number Between ${text}`;
 
-    divTwo.style.display = "flex"
+    divTwo.style.display = "flex";
   }
-
 
   // guess button function
   guessBtn.addEventListener("click", () => {
-
-    let inputInfo = document.querySelector(".inputInfo").innerHTML = "You Can Try 10 Times."
+    let inputInfo = (document.querySelector(".inputInfo").innerHTML =
+      "You Can Try 10 Times.");
 
     if (random == guess.value) {
-
       gameInfo.innerHTML = `🎊Congrats!🎆🎊 You win random number is ${random}`;
 
       gameAni.style.display = "block";
 
       gameInfo.id = "style";
 
-      gameInfo.style.display = "block"
+      gameInfo.style.display = "block";
     }
 
     if (guess.value < random) {
-      console.log("Your Guess Number Was Too Low Please Try Again");
-
-      gameInfo.innerHTML = "Your Guess Number Was Too Low😓. Please Enter A Large Number"
+      gameInfo.innerHTML =
+        "Your Guess Number Was Too Low😓. Please Enter A Large Number";
     } else if (guess.value > random) {
-      gameInfo.innerHTML = "Your Guess Number Was Too Large 😣. Please Enter A Low Number"
+      gameInfo.innerHTML =
+        "Your Guess Number Was Too Large 😣. Please Enter A Low Number";
     }
-
-  })
-
-})
-
-
+  });
+});
 
 let a = 0;
 
 guessBtn.addEventListener("click", () => {
-
   a += 1;
 
-  console.log(a);
- 
-  let clickCount = document.querySelector(".clickCount").innerHTML = a;
+  let clickCount = (document.querySelector(".clickCount").innerHTML = a);
 
   setInterval(() => {
+    if (a == 10) {
+      gameInfo.innerHTML = "Game Over😔. Your time Was End. Please Try Again.";
 
-
-      if (a == 10) {
-
-
-        console.log(guess.value);
-
-        gameInfo.innerHTML = "Game Over😔. Your time Was End. Please Try Again.";
-
-        divTwo.style.display = "none";
-      }
-
+      divTwo.style.display = "none";
+    }
   }, 1000);
-
-})
-
-
-
-
-
+});
 
 // for win Animation
 
@@ -144,7 +119,7 @@ const possibleColors = [
   "SteelBlue",
   "SandyBrown",
   "Chocolate",
-  "Crimson"
+  "Crimson",
 ];
 
 function randomFromTo(from, to) {
@@ -153,24 +128,24 @@ function randomFromTo(from, to) {
 
 class confettiParticle {
   constructor() {
-    this.x = Math.random() * W // x
-    this.y = Math.random() * H - H // y
-    this.r = randomFromTo(11, 33) // radius
-    this.d = Math.random() * maxConfettis + 11
+    this.x = Math.random() * W; // x
+    this.y = Math.random() * H - H; // y
+    this.r = randomFromTo(11, 33); // radius
+    this.d = Math.random() * maxConfettis + 11;
     this.color =
-      possibleColors[Math.floor(Math.random() * possibleColors.length)]
-    this.tilt = Math.floor(Math.random() * 33) - 11
-    this.tiltAngleIncremental = Math.random() * 0.07 + 0.05
-    this.tiltAngle = 0
+      possibleColors[Math.floor(Math.random() * possibleColors.length)];
+    this.tilt = Math.floor(Math.random() * 33) - 11;
+    this.tiltAngleIncremental = Math.random() * 0.07 + 0.05;
+    this.tiltAngle = 0;
 
     this.draw = function () {
-      context.beginPath()
-      context.lineWidth = this.r / 2
-      context.strokeStyle = this.color
-      context.moveTo(this.x + this.tilt + this.r / 3, this.y)
-      context.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 5)
-      return context.stroke()
-    }
+      context.beginPath();
+      context.lineWidth = this.r / 2;
+      context.strokeStyle = this.color;
+      context.moveTo(this.x + this.tilt + this.r / 3, this.y);
+      context.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 5);
+      return context.stroke();
+    };
   }
 }
 
