@@ -23,9 +23,7 @@ const gameAni = document.querySelector("#winParty");
 // Enter user max Number function
 randomBtn.addEventListener("click", () => {
   const random = Math.floor(Math.random() * max.value) + 1;
-
   const makeNumber = Number(max.value);
-
   if (
     max.value == "" ||
     max.value == 0 ||
@@ -40,41 +38,35 @@ randomBtn.addEventListener("click", () => {
     max.value == 9
   ) {
     const divOne = (document.querySelector("#divOne").style.display = "flex");
-
     divTwo.style.display = "none";
-
     removeText.style.display = "none";
-
     changeTextOne.innerHTML = "Please Enter Minimum Two Digit Number";
   } else if (max.value == makeNumber) {
     const divOne = (document.querySelector("#divOne").style.display = "none");
-
     const text = max.value;
-
     changeText.innerHTML = `Guessing Number Between ${text}`;
-
     divTwo.style.display = "flex";
   }
 
   // guess button function
   guessBtn.addEventListener("click", () => {
-    let inputInfo = (document.querySelector(".inputInfo").innerHTML =
-      "You Can Try 10 Times.");
+    document.querySelector(".inputInfo").innerHTML = `You Can Try ${
+      10 - a
+    } Times.`;
 
     if (random == guess.value) {
       gameInfo.innerHTML = `🎊Congrats!🎆🎊 You win random number is ${random}`;
-
       gameAni.style.display = "block";
-
       gameInfo.id = "style";
-
       gameInfo.style.display = "block";
     }
 
     if (guess.value < random) {
+      guess.value = "";
       gameInfo.innerHTML =
         "Your Guess Number Was Too Low😓. Please Enter A Large Number";
     } else if (guess.value > random) {
+      guess.value = "";
       gameInfo.innerHTML =
         "Your Guess Number Was Too Large 😣. Please Enter A Low Number";
     }
@@ -85,13 +77,11 @@ let a = 0;
 
 guessBtn.addEventListener("click", () => {
   a += 1;
-
-  let clickCount = (document.querySelector(".clickCount").innerHTML = a);
+  document.querySelector(".clickCount").innerHTML = a;
 
   setInterval(() => {
     if (a == 10) {
       gameInfo.innerHTML = "Game Over😔. Your time Was End. Please Try Again.";
-
       divTwo.style.display = "none";
     }
   }, 1000);
